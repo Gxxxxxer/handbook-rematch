@@ -13,59 +13,69 @@ Rematch 在 Redux 的基础上构建并减少了样板代码和执行了一些�
 * mapDispatchToProps
 * sagas
 
-## Redux 与 Rematch 的对比
+### Redux 与 Rematch 的对比
 
 让 Redux 与Rematch 作对比有助于让理解更加清晰。
 
-### Rematch
+#### Rematch
 
-#### 1. model
+1. model
 
 ```javascript
-
-import { init } from '@rematch/core'const count = {  state: 0,  reducers: {    upBy: (state, payload) => state + payload  }}init({  models: { count }})
+import { init } from '@rematch/core'
+const count = {  state: 0,  reducers: {    upBy: (state, payload) => state + payload  }}init({  models: { count }})
 ```
 
-#### 2. View
+2. View
 
 ```javascript
-
-import { connect } from 'react-redux'// Componentconst mapStateToProps = (state) => ({  count: state.count})const mapDispatchToProps = (dispatch) => ({  countUpBy: dispatch.count.upBy})connect(mapStateToProps, mapDispatchToProps)(Component)
+import { connect } from 'react-redux'
+// Componentconst mapStateToProps = (state) => ({  count: state.count})const mapDispatchToProps = (dispatch) => ({  countUpBy: dispatch.count.upBy})connect(mapStateToProps, mapDispatchToProps)(Component)
 ```
 
 ### Redux （最佳实践）
 
-#### 1. store
+1. store
 
 ```javascript
 import { createStore, combineReducers } from 'redux'
 // devtools, reducers, middleware, etc.export default createStore(reducers, initialState, enhancers)
 ```
 
-#### 2. Action Type
+2. Action Type
 
 ```javascript
 export const COUNT_UP_BY = 'COUNT_UP_BY'
 ```
 
-#### 3. Action Creator
+3. Action Creator
 
 ```javascript
 import { COUNT_UP_BY } from '../types/counter'
 export const countUpBy = (value) => ({  type: COUNT_UP_BY,  payload: value,})
 ```
 
-#### 4. Reducer
+4. Reducer
 
 ```javascript
 import { COUNT_UP_BY } from '../types/counter'
 const initialState = 0export default (state = initialState, action) => {  switch (action.type) {    case COUNT_UP_BY:      return state + action.payload    default: return state  }}
 ```
 
-#### 5. view
+5. view
 
 ```javascript
 import { countUpBy } from '../actions/count'
 import { connect } from 'react-redux'// Componentconst mapStateToProps = (state) => ({  count: state.count,})connect(mapStateToProps, { countUpBy })(Component)
 ```
+
+#### 分数板
+
+|  | Redux | Rematch |
+| --- | --- | --- | --- |
+| 简易设置 |  | √ |
+| 更少的样板代码 |  | √ |
+| 可读性 | √ | √ |
+
+
 
