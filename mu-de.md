@@ -13,3 +13,16 @@ Rematch 在 Redux 的基础上构建并减少了样板代码和执行了一些�
 * mapDispatchToProps
 * sagas
 
+## Redux 与 Rematch 的对比
+
+让 Redux 与Rematch 作对比有助于让理解更加清晰。
+
+### Rematch
+
+#### 1. model
+
+```javascript
+
+import { init } from '@rematch/core'const count = {  state: 0,  reducers: {    upBy: (state, payload) => state + payload  }}init({  models: { count }})
+```
+
