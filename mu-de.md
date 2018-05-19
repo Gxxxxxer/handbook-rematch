@@ -72,10 +72,15 @@ import { connect } from 'react-redux'// Componentconst mapStateToProps = (state)
 #### 分数板
 
 |  | Redux | Rematch |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 简易设置 |  | √ |
 | 更少的样板代码 |  | √ |
 | 可读性 | √ | √ |
+| 可配置 | √ | √ |
+| redux 开发工具 | √ | √ |
+| 产生 action 构造函数 | √ | √ |
+| 全局分发器 \(dispatch\) |  | √ |
+| 异步 | thunks | async/await |
 
 
 
