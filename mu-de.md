@@ -33,7 +33,7 @@ import { connect } from 'react-redux'
 // Componentconst mapStateToProps = (state) => ({  count: state.count})const mapDispatchToProps = (dispatch) => ({  countUpBy: dispatch.count.upBy})connect(mapStateToProps, mapDispatchToProps)(Component)
 ```
 
-### Redux （最佳实践）
+#### Redux （最佳实践）
 
 1. store
 
