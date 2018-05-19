@@ -21,7 +21,8 @@ description: >-
   * 初始Redux API
   * 插件API
 * 技巧
-* demo
+
+
 
 
 
