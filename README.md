@@ -4,7 +4,7 @@ description: >-
   语句或者thunks。
 ---
 
-# Rethink Redux.
+# 重新思考Redux
 
 * [为什么我们创建Rematch](https://hackernoon.com/redesigning-redux-b2baee8b8a38)
 * [Video: Rematch介绍](https://www.youtube.com/watch?v=3ezSBYoL5do)
