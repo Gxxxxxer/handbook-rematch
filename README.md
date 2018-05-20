@@ -88,9 +88,70 @@ export const count = {
 }
 ```
 
+_查看_[_reducer文档_](https://github.com/rematch/rematch/blob/master/docs/api.md#reducers)_以了解更多信息，包括如何触发其他model的action。_
 
+理解模型与回答几个问题一样简单：
 
+1. 我的初始state是什么?**state**
+2. 我如何改变state？**reducers**
+3. 我如何处理异步action？  **effects** with async/await
 
+#### Step 3: Dispatch
+
+ **dispatch** 是我们如何在你的model中触发 reducers 和 effects。 Dispatch 标准化了你的action，而无需编写action types 或者  action creators。
+
+```javascript
+import { dispatch } from '@rematch/core'
+
+                                                  // state = { count: 0 }
+// reducers
+dispatch({ type: 'count/increment', payload: 1 }) // state = { count: 1 }
+dispatch.count.increment(1)                       // state = { count: 2 }
+
+// effects
+dispatch({ type: 'count/incrementAsync', payload: 1 }) // state = { count: 3 } after delay
+dispatch.count.incrementAsync(1)                       // state = { count: 4 } after delay
+```
+
+ Dispatch 能被直接调用，或者用 dispatch\[model\]\[action\]\(payload\)简写。
+
+#### Step 4: View
+
+* Count:[ JS](https://codepen.io/Sh_McK/pen/BJMmXx?editors=1010) \| [React ](https://codesandbox.io/s/3kpyz2nnz6)\| [Vue](https://codesandbox.io/s/n3373olqo0) \| [Angular](https://stackblitz.com/edit/rematch-angular-5-count)
+* Todos[: React](https://codesandbox.io/s/92mk9n6vww)
+
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider, connect } from 'react-redux'
+import store from './index'
+
+const Count = props => (
+  <div>
+    The count is {props.count}
+    <button onClick={props.increment}>increment</button>
+    <button onClick={props.incrementAsync}>incrementAsync</button>
+  </div>
+)
+
+const mapState = state => ({
+  count: state.count
+})
+
+const mapDispatch = ({ count: { increment, incrementAsync }}) => ({
+  increment: () => increment(1),
+  incrementAsync: () => incrementAsync(1)
+})
+
+const CountContainer = connect(mapState, mapDispatch)(Count)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <CountContainer />
+  </Provider>,
+  document.getElementById('root')
+)
+```
 
 
 
