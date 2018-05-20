@@ -110,5 +110,31 @@ const example = {
 
 一个可以处理该model world outside功能（所有函数）的对象。
 
+```javascript
+{
+  effects: {
+    logState(payload, rootState) {
+      console.log(rootState)
+    }
+  }
+}
+```
+
+当与`async/await`一起使用时，Effects提供了一种处理异步action的简单方法。
+
+```javascript
+{
+  effects: {
+    async loadData(payload, rootState) {
+      // wait for data to load
+      const response = await fetch('http://example.com/data')
+      const data = await response.json()
+      // pass the result to a local reducer
+      dispatch.example.update(data)
+    }
+  }
+}
+```
+
 
 
