@@ -153,5 +153,23 @@ ReactDOM.render(
 )
 ```
 
+### 从Redux迁移
 
+从Redux转到Rematch只需很少的几步。
+
+1. 基于Redux启动Rematch init [step 1](https://codesandbox.io/s/yw2wy1q929)
+2. 合并reducers 和  models  [step 2](https://codesandbox.io/s/9yk6rjok1r)
+3. 转移到模型 [step 3](https://codesandbox.io/s/mym2x8m7v9)
+
+### API
+
+ See the [@rematch/core API](https://rematch.gitbooks.io/rematch/docs/api.html)
+
+### Experiment with v1.0.0-alpha
+
+使用@next标志安装rematch和所有插件。
+
+参阅[CHANGELOG](https://rematch.gitbooks.io/rematch/CHANGELOG.md)以查看最新消息。
+
+Like this project? ★ us on Github :\)+
 
