@@ -144,5 +144,5 @@ init({
 })
 ```
 
-
+Plugins 是用来自定义init配置或内部hooks，它能添加功能到你的Rematch设置当中来。
 
