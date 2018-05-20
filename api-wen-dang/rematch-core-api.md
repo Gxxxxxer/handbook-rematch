@@ -136,5 +136,13 @@ const example = {
 }
 ```
 
+#### plugins {#plugins}
+
+```text
+init({
+  plugins: [loadingPlugin, persistPlugin],
+})
+```
+
 
 
