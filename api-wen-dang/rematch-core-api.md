@@ -169,5 +169,9 @@ init({
 
 有关所有redux选项的完整摘要，请参阅[init Redux API](https://rematch.gitbooks.io/rematch/docs/reduxApi.html)。
 
+### store
 
+#### store.dispatch
+
+在Redux中，一个分派action的函数。
 
