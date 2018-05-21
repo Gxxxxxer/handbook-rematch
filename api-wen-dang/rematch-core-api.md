@@ -247,7 +247,9 @@ Dispatch具有可选的第二个属性“meta”，它可以用于 subscriptions
 
 `dispatch.cart.addToCart(item, { syncWithServer: true })`
 
+#### action
 
+`{ type: 'modelName/actionName', payload: any }`
 
-
+Action是在Redux中发送的消息，作为应用程序的不同部分传递状态更新的一种方式。
 
