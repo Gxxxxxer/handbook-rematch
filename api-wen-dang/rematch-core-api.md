@@ -233,5 +233,21 @@ store.getState()
 
 `dispatch.modelName.actionName(any)`
 
+在Rematch中，使用上面的简写更常见，它将为您创建和构造一个action。
+
+ Dispatch 可以在应用程序中的任何地方被调用，但建议使用`store.dispatch`代替。
+
+```javascript
+import { dispatch } from '@rematch/core'
+
+dispatch.cart.addToCart(item)
+```
+
+Dispatch具有可选的第二个属性“meta”，它可以用于 subscriptions 或 middleware。 这仅适用于高级用例。
+
+`dispatch.cart.addToCart(item, { syncWithServer: true })`
+
+
+
 
 
