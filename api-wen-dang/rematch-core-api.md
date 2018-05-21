@@ -175,3 +175,57 @@ init({
 
 在Redux中，一个分派action的函数。
 
+在Rematch中，`store.dispatch`能被直接调用或者作为一个对象。
+
+```javascript
+import store from './index'
+
+const { dispatch } = store
+                                                  // state = { count: 0 }
+// reducers
+dispatch({ type: 'count/increment', payload: 1 }) // state = { count: 1 }
+dispatch.count.increment(1)                       // state = { count: 2 }
+
+// effects
+dispatch({ type: 'count/incrementAsync', payload: 1 }) // state = { count: 3 } after delay
+dispatch.count.incrementAsync(1)                       // state = { count: 4 } after delay
+```
+
+#### store.getState
+
+在Redux中，返回该store的state。
+
+#### store.name
+
+为您的store提供一个名称。
+
+当使用多个store时使用它。当全局`getState`被调用时这个名字将变成key。
+
+#### store.model
+
+在调用`init`之后，可以延迟加载model并将它们合并到Rematch中。 使用`store.model`。
+
+```javascript
+import { init } from '@rematch/core'
+
+const store = init({
+  models: {
+    count: { state: 0 }
+  }
+})
+
+store.getState()
+// { count: 0 }
+
+
+// later on
+store.model({ name: 'countB', state: 99 })
+
+store.getState()
+// { count: 0, countB: state: 99 }
+```
+
+### dispatch
+
+`dispatch(action, meta)`
+
