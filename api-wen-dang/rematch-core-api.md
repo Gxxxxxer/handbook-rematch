@@ -144,5 +144,30 @@ init({
 })
 ```
 
-Plugins 是用来自定义init配置或内部hooks，它能添加功能到你的Rematch设置当中来。
+Plugins 用来自定义init配置或内部hooks，它能添加功能到你的Rematch设置当中来。
+
+阅读更多关于现有的插件或关于如何使用plugins API创建你自己的插件。
+
+#### redux
+
+```javascript
+init({
+  redux: {
+    middlewares: [reduxLogger],
+    reducers: {
+      someReducer: (state, action) => ...,
+    }
+  },
+})
+```
+
+有些情况下您可能想要直接访问Redux。 您可能想要：
+
+* 迁移现有的Redux项目
+* 添加中间件
+* 创建一个自定义插件
+
+有关所有redux选项的完整摘要，请参阅[init Redux API](https://rematch.gitbooks.io/rematch/docs/reduxApi.html)。
+
+
 
