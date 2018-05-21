@@ -253,3 +253,13 @@ Dispatch具有可选的第二个属性“meta”，它可以用于 subscriptions
 
 Action是在Redux中发送的消息，作为应用程序的不同部分传递状态更新的一种方式。
 
+在Rematch中，一个action始终是一个“model名称”和“action名称”类型的结构 - 指的是一个reducer或effect名称。
+
+任何附加到action的数据都会添加到payload中。
+
+### getState
+
+`getState(): { [storeName]: state }`
+
+
+
