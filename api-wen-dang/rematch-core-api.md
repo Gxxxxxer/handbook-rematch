@@ -229,3 +229,9 @@ store.getState()
 
 `dispatch(action, meta)`
 
+在**所有store中**，Dispatch 发送并触发action。
+
+`dispatch.modelName.actionName(any)`
+
+
+
