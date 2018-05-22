@@ -23,14 +23,35 @@ Rematch 在 Redux 的基础上构建并减少了样板代码和执行了一些�
 
 ```javascript
 import { init } from '@rematch/core'
-const count = {  state: 0,  reducers: {    upBy: (state, payload) => state + payload  }}init({  models: { count }})
+
+const count = {
+  state: 0,
+  reducers: {
+    upBy: (state, payload) => state + payload
+  }
+}
+
+init({
+  models: { count }
+})
 ```
 
 2. View
 
 ```javascript
 import { connect } from 'react-redux'
-// Componentconst mapStateToProps = (state) => ({  count: state.count})const mapDispatchToProps = (dispatch) => ({  countUpBy: dispatch.count.upBy})connect(mapStateToProps, mapDispatchToProps)(Component)
+
+// Component
+
+const mapStateToProps = (state) => ({
+  count: state.count
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  countUpBy: dispatch.count.upBy
+})
+
+connect(mapStateToProps, mapDispatchToProps)(Component)
 ```
 
 #### Redux （最佳实践）
@@ -39,7 +60,8 @@ import { connect } from 'react-redux'
 
 ```javascript
 import { createStore, combineReducers } from 'redux'
-// devtools, reducers, middleware, etc.export default createStore(reducers, initialState, enhancers)
+// devtools, reducers, middleware, etc.
+export default createStore(reducers, initialState, enhancers)
 ```
 
 2. Action Type
@@ -52,21 +74,42 @@ export const COUNT_UP_BY = 'COUNT_UP_BY'
 
 ```javascript
 import { COUNT_UP_BY } from '../types/counter'
-export const countUpBy = (value) => ({  type: COUNT_UP_BY,  payload: value,})
+
+export const countUpBy = (value) => ({
+  type: COUNT_UP_BY,
+  payload: value,
+})
 ```
 
 4. Reducer
 
 ```javascript
 import { COUNT_UP_BY } from '../types/counter'
-const initialState = 0export default (state = initialState, action) => {  switch (action.type) {    case COUNT_UP_BY:      return state + action.payload    default: return state  }}
+
+const initialState = 0
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case COUNT_UP_BY:
+      return state + action.payload
+    default: return state
+  }
+}
 ```
 
 5. view
 
 ```javascript
 import { countUpBy } from '../actions/count'
-import { connect } from 'react-redux'// Componentconst mapStateToProps = (state) => ({  count: state.count,})connect(mapStateToProps, { countUpBy })(Component)
+import { connect } from 'react-redux'
+
+// Component
+
+const mapStateToProps = (state) => ({
+  count: state.count,
+})
+
+connect(mapStateToProps, { countUpBy })(Component)
 ```
 
 #### 分数板
