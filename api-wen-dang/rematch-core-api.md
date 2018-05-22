@@ -263,5 +263,19 @@ Action是在Redux中发送的消息，作为应用程序的不同部分传递状
 
 返回一个包含所有store state的对象。
 
+```javascript
+import { init, getState } from '@rematch/core'
 
+const firstStore = init({
+  name: 'first',
+  models: { count: { state: 0 } }
+})
+
+const secondStore = init({
+  name: 'second',
+  models: { count: { state: 5 } }
+})
+
+getState() // { first: { count: 1 }, second: { count: 5 } }
+```
 
