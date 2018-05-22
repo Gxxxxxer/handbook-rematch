@@ -261,5 +261,7 @@ Action是在Redux中发送的消息，作为应用程序的不同部分传递状
 
 `getState(): { [storeName]: state }`
 
+返回一个包含所有store state的对象。
+
 
 
