@@ -62,5 +62,45 @@ init({
 })
 ```
 
+添加middleware到你的store
+
+#### enhancers
+
+```javascript
+init({
+  redux: {
+    enhancers: [customEnhancer()]
+  }
+})
+```
+
+添加enhancers到你的store。
+
+#### rootReducers
+
+```javascript
+init({
+  redux: {
+    rootReducers: {
+      'RESET': (state, action) => undefined,
+    }
+  }
+})
+```
+
+一种设置中间件钩子的方法，它位于root reducer的基础上。 与中间件不同，返回值是下一个状态。如果**undefined**，这个state将会退回到reducers 初始state。
+
+#### combineReducers
+
+```javascript
+init({
+  redux: {
+    combineReducers: customCombineReducers
+  }
+})
+```
+
+允许访问覆盖Redux的**combineReducers**方法。
+
 
 
