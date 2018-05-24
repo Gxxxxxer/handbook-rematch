@@ -6,4 +6,6 @@
   * [@rematch/core API](api-wen-dang/rematch-core-api.md)
   * [Init Redux API](api-wen-dang/init-redux-api.md)
   * [Plugin API](api-wen-dang/plugin-api.md)
+* 技巧
+  * [Devtools](ji-qiao/untitled.md)
 
