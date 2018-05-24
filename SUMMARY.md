@@ -11,4 +11,5 @@
   * [React](ji-qiao/react.md)
   * [Vue](ji-qiao/vue.md)
   * [Testing](ji-qiao/testing.md)
+  * [TypeScript](ji-qiao/typescript.md)
 
