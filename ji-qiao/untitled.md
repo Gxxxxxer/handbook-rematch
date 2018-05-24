@@ -36,6 +36,21 @@ export default Reactotron
   .connect()
 ```
 
+覆写`createStore`来完成配置。
+
+```javascript
+// index.js
+import Reactotron from './Reactotron.config.js'
+
+init({
+  redux: {
+    createStore: Reactotron.createStore,
+  }
+})
+```
+
+
+
 
 
 
