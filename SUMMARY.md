@@ -9,5 +9,5 @@
 * 技巧
   * [Devtools](ji-qiao/untitled.md)
   * [React](ji-qiao/react.md)
-  * Vue
+  * [Vue](ji-qiao/vue.md)
 
