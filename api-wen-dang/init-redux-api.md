@@ -100,7 +100,31 @@ init({
 })
 ```
 
-允许访问覆盖Redux的**combineReducers**方法。
+允许访问覆写Redux的**combineReducers**方法。对于设置 Redux persist v5，当前是必须的。
+
+#### createStore
+
+```javascript
+init({
+  redux: {
+    createStore: customCreateStore
+  }
+})
+```
+
+允许访问覆写Redux的**createStore**方法。对于基于Redux设置Reactotron，当前是必须的。
+
+#### devtoolOptions
+
+```javascript
+init({
+  redux: {
+    devtoolOptions: customDevtoolOptions
+  }
+})
+```
+
+访问[redux devtool options](https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/API/Arguments.md)。在[devtool recipes](https://rematch.gitbooks.io/rematch/docs/recipes/devtools)之上了解更多配置devtools的信息。
 
 
 
