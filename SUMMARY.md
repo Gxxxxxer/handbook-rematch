@@ -18,4 +18,5 @@
   * [Rematch Select](cha-jian/untitled.md)
   * [Rematch Loading](cha-jian/rematch-loading.md)
   * [Rematch Persist](cha-jian/rematch-persist.md)
+  * [Rematch Updated](cha-jian/rematch-updated.md)
 
