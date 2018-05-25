@@ -17,4 +17,5 @@
 * 插件
   * [Rematch Select](cha-jian/untitled.md)
   * [Rematch Loading](cha-jian/rematch-loading.md)
+  * [Rematch Persist](cha-jian/rematch-persist.md)
 

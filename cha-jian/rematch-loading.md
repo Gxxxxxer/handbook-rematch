@@ -125,4 +125,58 @@ const loading = createLoadingPlugin(options)
 
 关于模型配置选项的一些注意事项：
 
-* 
+* `name`配置将优先并覆盖`model.name`配置。
+*  effects 配置\(`model.effects`\)没有经过测试。
+*  reducers 配置\(`model.reducers`\)已经过测试，可用于添加 reducer。尽管如此，这个配置的一个例子还不清楚。任何`show`和`hide`reducer都将被插件覆盖。
+* 除非你知道你在做什么，否则不建议提供`model.state`配置。 提供错误的配置可能会以意想不到的方式破坏插件。
+
+#### mergeInitialState
+
+`{ mergeInitialState: (state, newObject ) => any }`
+
+通过将 loading model 与提供的对象合并来改变 model 的初始状态的函数。它接受当前的`state`作为第一个参数和要被合并的`newObject`作为第二个参数。 这个函数改变提供的`state`并且不返回一个新的 state 是很重要的。
+
+通常，用户不应该设置此配置。 但是，如果用户未使用JavaScript对象作为store，则需要此配置。 例如，使用Immutable JS时将需要它。
+
+#### loadingActionCreator
+
+`{ loadingActionCreator: (state, name, action, converter, countState) => any }`
+
+一个 reducer 函数，loading effect 被分发时返回新状态。它接受当前的`state`，被分发`model`的`name`（string），被分发的`action`（string），一个 `converter` 函数和当前的 `countState` 对象。
+
+这是一个复杂的函数，最好接受默认值。 如果你想定制这个函数，看看 loading 插件源代码，以了解这个函数应该如何工作。 这个配置是公开的，所以用户可以使用不是JavaScript对象的store（例如Immutable JS）。
+
+### Immutable JS 示例
+
+用户可以通过插件使用 [`Immutable.js`](https://facebook.github.io/immutable-js/) Map。为此，需要设置 `mergeInitialState`，`loadingActionCreator`和`model.state`配置。这是一个简单的例子：
+
+```javascript
+import createLoadingPlugin from '@rematch/loading'
+import { fromJS } from 'immutable';
+
+// Immutably returns the new state
+const immutableLoadingActionCreator = (state, name, action, converter, cntState) => (
+  state.asImmutable().withMutations( map => map.set('global', converter(cntState.global))
+    .setIn(['models', name], converter(cntState.models[name]))
+    .setIn(['effects',name, action], converter(cntState.effects[name][action]))
+  )
+)
+
+// Mutates the current state with a deep merge
+const immutableMergeInitialState = (state, newObj) => (
+  state.asMutable().mergeDeep(fromJS(newObj))
+)
+
+const options = {
+  loadingActionCreator: immutableLoadingActionCreator,
+  mergeInitialState: immutableMergeInitialState,
+  model: {
+    state: fromJS({}),
+  }
+}
+
+const loading = createLoadingPlugin(options);
+```
+
+上面的例子已经过测试，包含在这个包的测试套件中。
+
