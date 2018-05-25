@@ -85,6 +85,26 @@ import { createSelector } from 'reselect'
 
 缺省情况是返回与拥有model名称相对应的state切片，但是这里假定store是一个Javascript对象。 大多数时候应该使用默认值。但是，有些情况下可能需要指定`sliceState`函数。
 
+#### 示例1 -  在选择器中使用根 state 而不是切片：
+
+这很容易通过在`getState`配置中返回`rootState`完成：
+
+```javascript
+const select = selectorsPlugin({ sliceState: rootState => rootState });
+```
+
+现在，传递给所有selector的`state`参数将成为 root state。
+
+#### 示例1 -  使用不可变的 JS 对象作为store
+
+如果你正在使用一个 [Immutable.js](https://facebook.github.io/immutable-js/) Map 作为你的 store，你将需要使用 [Map.get\(\)](http://facebook.github.io/immutable-js/docs/#/Map/get) 切片该 state ：
+
+```javascript
+const select = selectorsPlugin({ sliceState: (rootState, model) => rootState.get(model.name) })
+```
+
+现在你可以使用一个 [Immutable.js Map](http://facebook.github.io/immutable-js/docs/#/Map) 来作为你的 store 并且在每个你的 selector 中访问适当的 state 片段。
+
 
 
 
