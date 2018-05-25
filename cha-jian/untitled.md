@@ -46,7 +46,44 @@ selectors是只读状态的片段。
 }
 ```
 
+> 注意：默认情况下，selector state不是指完整的state，而仅指model内的state。 要更改此行为，请使用下面描述的sliceState配置选项。
 
+selector可以在应用程序的任何位置调用。
+
+```javascript
+import { select } from '@rematch/select'
+
+const store = init({ ... })
+
+select.cart.total(store.getState())
+```
+
+选择器也可以用于memoization库，如[reselect](https://github.com/reactjs/reselect)。
+
+```javascript
+import { createSelector } from 'reselect'
+
+{
+  selectors: {
+    total: createSelector(
+      state => state,
+      state => state.reduce((a, b) => a + (b.price * b.amount), 0)
+    )
+  }
+}
+```
+
+### 配置选项
+
+`selectorPlugin()`方法将接受具有以下属性的配置对象。
+
+#### sliceState:
+
+`sliceState: (rootState, model) => any`
+
+一个选项，允许用户指定state在传递给selector之前将如何切片。该函数将`rootState`作为第一个参数，并将selector对应的`model`作为第二个参数。它应该返回selector所需要的状态切片。
+
+缺省情况是返回与拥有model名称相对应的state切片，但是这里假定store是一个Javascript对象。 大多数时候应该使用默认值。但是，有些情况下可能需要指定`sliceState`函数。
 
 
 
