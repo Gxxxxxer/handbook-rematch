@@ -16,4 +16,5 @@
   * [Decoupling reducers](ji-qiao/untitled-1.md)
 * 插件
   * [Rematch Select](cha-jian/untitled.md)
+  * [Rematch Loading](cha-jian/rematch-loading.md)
 
