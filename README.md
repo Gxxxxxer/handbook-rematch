@@ -45,7 +45,7 @@ npm install @rematch/core
 
 #### 第一步：Init
 
-**init** 用来配置你 reducers, devtools & store。
+**init** 用来配置你的 reducers, devtools & store。
 
 index.js
 
@@ -60,7 +60,7 @@ const store = init({
 export default store
 ```
 
-_对于更高级的设置，查看插件和Redux配置选项。_
+_对于更高级的设置，查看_[_插件_](https://rematch.gitbooks.io/rematch/docs/plugins.md)_和_[_Redux配置选项_](https://rematch.gitbook.io/handbook/~/edit/primary/api-wen-dang/init-redux-api)_。_
 
 #### 第二步：Models
 
