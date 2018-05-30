@@ -88,13 +88,13 @@ export const count = {
 }
 ```
 
-_查看_[_reducer文档_](https://github.com/rematch/rematch/blob/master/docs/api.md#reducers)_以了解更多信息，包括如何触发其他model的action。_
+_查看_[_reducer文档_](https://github.com/rematch/rematch/blob/master/docs/api.md#reducers)_以了解更多信息，包括如何从其他 modal 触发 actions。_
 
 理解模型与回答几个问题一样简单：
 
-1. 我的初始state是什么?**state**
-2. 我如何改变state？**reducers**
-3. 我如何处理异步action？  **effects** with async/await
+1. 我的初始 state 是什么? **state**
+2. 我如何改变 state？ **reducers**
+3. 我如何处理异步 action？  **effects** with async/await
 
 #### Step 3: Dispatch
 
