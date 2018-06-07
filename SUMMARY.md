@@ -2,11 +2,11 @@
 
 * [重新思考Redux](README.md)
 * [目的](mu-de.md)
-* API 文档
+* [API 文档](api-wen-dang/README.md)
   * [@rematch/core API](api-wen-dang/rematch-core-api.md)
   * [Init Redux API](api-wen-dang/init-redux-api.md)
   * [Plugin API](api-wen-dang/plugin-api.md)
-* 技巧
+* [技巧](ji-qiao/README.md)
   * [Devtools](ji-qiao/untitled.md)
   * [React](ji-qiao/react.md)
   * [Vue](ji-qiao/vue.md)
@@ -14,7 +14,7 @@
   * [TypeScript](ji-qiao/typescript.md)
   * [Immer](ji-qiao/immer.md)
   * [Decoupling reducers](ji-qiao/untitled-1.md)
-* 插件
+* [插件](cha-jian/README.md)
   * [Rematch Select](cha-jian/untitled.md)
   * [Rematch Loading](cha-jian/rematch-loading.md)
   * [Rematch Persist](cha-jian/rematch-persist.md)

@@ -1,8 +1,10 @@
 ---
-description: 除非您正在构建自己的插件或添加中间件，否则本节可能对您没有帮助。 有关常见init选项的列表，请参阅@rematch / core API
+description: 除非您正在构建自己的插件或添加中间件，否则本节可能对您没有帮助。 有关常见 init 选项的列表，请参阅 @rematch / core API
 ---
 
 # Init Redux API
+
+
 
 * init
   * redux
@@ -17,7 +19,7 @@ description: 除非您正在构建自己的插件或添加中间件，否则本�
 
 ### Redux
 
-本节提供对Redux设置的访问以及覆盖Redux方法的选项。
+本节提供对 Redux 设置的访问以及覆盖 Redux 方法的选项。
 
 #### initialState
 
@@ -29,7 +31,7 @@ init({
  })
 ```
 
-你app的initialState。 这可能不是必需的，因为model的状态会覆盖init state。
+你的 app 的 initialState. 这可能不是必需的，因为 model 的状态会覆盖 init state 。
 
 #### reducers
 
@@ -50,7 +52,7 @@ init({
 })
 ```
 
-允许传递reducer functions，而不是model。 虽然不推荐，但可用于迁移Redux代码库或配置不同的Redux扩展。
+允许传递 reducer functions，而不是 model 。 虽然不推荐，但可用于迁移 Redux 代码库或配置不同的 Redux 扩展。
 
 #### middlewares
 
@@ -62,7 +64,7 @@ init({
 })
 ```
 
-添加middleware到你的store
+添加 middleware 到你的 store.
 
 #### enhancers
 
@@ -74,7 +76,7 @@ init({
 })
 ```
 
-添加enhancers到你的store。
+添加 enhancers 到你的store.
 
 #### rootReducers
 
@@ -88,7 +90,7 @@ init({
 })
 ```
 
-一种设置中间件钩子的方法，它位于root reducer的基础上。 与中间件不同，返回值是下一个状态。如果**undefined**，这个state将会退回到reducers 初始state。
+一种在你的 root reducer 基础上设置中间件钩子的方法， 与中间件不同，返回值是下一个状态。如果**`undefined`**，这个 state 将会退回到 reducers 的初始 state.
 
 #### combineReducers
 
@@ -100,7 +102,7 @@ init({
 })
 ```
 
-允许访问覆写Redux的**combineReducers**方法。对于设置 Redux persist v5，当前是必须的。
+允许访问覆写 Redux 的 `combineReducers` ****方法。对于当前设置 Redux persist v5 来说是必须的。
 
 #### createStore
 
@@ -112,7 +114,7 @@ init({
 })
 ```
 
-允许访问覆写Redux的**createStore**方法。对于基于Redux设置Reactotron，当前是必须的。
+允许访问覆写 Redux 的 `createStore` ****方法。对于基于 Redux 设置 Reactotron 来说是必须的。
 
 #### devtoolOptions
 
@@ -124,7 +126,7 @@ init({
 })
 ```
 
-访问[redux devtool options](https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/API/Arguments.md)。在[devtool recipes](https://rematch.gitbooks.io/rematch/docs/recipes/devtools)之上了解更多配置devtools的信息。
+访问 [redux devtool options](https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/API/Arguments.md) .在 [devtool recipes](https://rematch.gitbooks.io/rematch/docs/recipes/devtools) 之上了解更多配置 devtools 的信息。
 
 
 
