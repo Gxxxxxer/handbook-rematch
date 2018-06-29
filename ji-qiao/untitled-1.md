@@ -1,8 +1,8 @@
-# Decoupling reducers
+# 解耦reducers
 
-Rematch 鼓励你保持一个扁平的状态来解决若干问题。每个 model 都应该被视为一个独立的实体，并且只应该通过它的 reducer 进行更新，这就是为什么 Rematch 不允许嵌套 reducer。
+Rematch，包括 redux 都鼓励你维护一个更为扁平的 store 以解决一些[issues](http://cn.redux.js.org/docs/recipes/reducers/NormalizingStateShape.html)。每个 model 都应该被视为一个独立的实体，并且只应该通过它的 reducer 进行更新，这就是为什么 Rematch 不允许嵌套 reducer。
 
-这就是说，有些情况下嵌套 reducer 可能是件好事。在这个技巧中，我们将看到如何使用可重复使用的reducer 函数。
+这就是说，有些情况下嵌套 reducer 可能是件好事。在这个技巧中，我们将看到如何使用可复的reducer 函数。
 
 我们从一个例子开始。 在Redux中，当我们想要存储有序列表时，常见模式是“allIds，byId”。将实体存储为数组需要花费额外的代价来遍历数组以找到我们的目标。另一方面，将实体存储为对象不会保留项目的顺序。 所以我们两者都用：
 
@@ -28,10 +28,10 @@ const todoList = {
 
 这造成了另一个问题：
 
-* `byId`和`allIds`指的是同一个实体，他们肯定需要生活在同一个model中
+* `byId`和`allIds`指的是同一个实体，他们肯定需要存储在同一个model中
 * `byId`和`allIds`互不依赖，他们肯定需要分开处理
 
-让我们试着看看我们能得到什么而不去解耦我们的reducer:
+让我们试着看看在不解耦 reducers 的情况下我们会得到什么:
 
 ```javascript
 const todoList = {
@@ -67,9 +67,9 @@ const todoList = {
 
  [React example](https://codesandbox.io/s/lry6024mkl)
 
-我们看到我们的reducer开始变得大而不可读。希望我们可以将更新函数分离出来。
+我们看到我们的reducer开始变得大而不可读。我们希望可以将更新函数分离出来。
 
-我们可以开始分离我们纯粹的可重用函数
+我们可以开始分离我们可重用的纯函数
 
 ```javascript
 function filterObjectByKey(obj, f) {
@@ -79,7 +79,7 @@ function filterObjectByKey(obj, f) {
 }
 ```
 
-现在我们可以分开我们的`reducer functions`，该函数更新状态一部分。
+现在我们可以分开我们的`reducer functions`，该函数更新state的一部分。
 
 ```javascript
 function removeById(state, payload) {
